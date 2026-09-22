@@ -59,7 +59,7 @@ export default function CheckoutPage() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
         
         {/* Checkout Form */}
-        <div>
+        <div className="order-2 lg:order-1">
           <h1 className="font-display text-4xl mb-8 tracking-wider">CHECKOUT</h1>
           
           <form onSubmit={handleCheckout} className="space-y-8">
@@ -105,7 +105,7 @@ export default function CheckoutPage() {
         </div>
 
         {/* Order Summary */}
-        <div className="lg:pl-8 lg:border-l lg:border-white/10">
+        <div className="order-1 lg:order-2 lg:pl-8 lg:border-l lg:border-white/10">
           <h2 className="font-display text-2xl tracking-wider mb-8">ORDER SUMMARY</h2>
           
           <div className="space-y-6 mb-8">
