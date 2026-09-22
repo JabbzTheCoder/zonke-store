@@ -18,7 +18,7 @@ function ColorSwatch({ color, isSelected, onClick }: { color: ProductColor; isSe
         title={color.name}
         className={`
           inline-block w-6 h-6 rounded-sm overflow-hidden flex-shrink-0 transition-all hover:scale-110 cursor-pointer
-          ${isSelected ? 'ring-2 ring-foreground ring-offset-1' : 'ring-1 ring-foreground/15'}
+          ${isSelected ? 'ring-2 ring-cyan ring-offset-2 ring-offset-[#0F172A]' : 'ring-1 ring-white/15'}
         `}
         style={{
           background: `linear-gradient(135deg, ${color.hex} 50%, ${color.hex2} 50%)`,
@@ -34,7 +34,7 @@ function ColorSwatch({ color, isSelected, onClick }: { color: ProductColor; isSe
       title={color.name}
       className={`
         inline-block w-6 h-6 rounded-sm flex-shrink-0 transition-all hover:scale-110 cursor-pointer
-        ${isSelected ? 'ring-2 ring-foreground ring-offset-1' : 'ring-1 ring-foreground/15'}
+        ${isSelected ? 'ring-2 ring-cyan ring-offset-2 ring-offset-[#0F172A]' : 'ring-1 ring-white/15'}
       `}
       style={{ backgroundColor: color.hex }}
       aria-label={`Select ${color.name}`}
@@ -70,8 +70,8 @@ export default function ProductCard({ product, index }: { product: Product; inde
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <Link href={`/products/${product.id}?color=${encodeURIComponent(selectedColor.name)}`} className="group block">
-        {/* Image container — light gray bg, square-ish aspect */}
-        <div className="relative aspect-square bg-[#ECECEC] overflow-hidden rounded-sm">
+        {/* Image container — translucent bg for dark theme */}
+        <div className="relative aspect-square bg-white/5 overflow-hidden rounded-xl border border-white/5">
           {/* Primary Image (visible by default, fades out on hover) */}
           <Image
             src={primaryImage}
@@ -96,7 +96,7 @@ export default function ProductCard({ product, index }: { product: Product; inde
           {/* Quick Add Button */}
           <button
             onClick={handleQuickAdd}
-            className="absolute bottom-4 right-4 z-30 p-2.5 bg-foreground text-bone rounded-full opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:scale-110 shadow-xl"
+            className="absolute bottom-4 right-4 z-30 p-2.5 bg-cyan text-navy rounded-full opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:scale-110 hover:bg-white shadow-[0_0_20px_rgba(56,189,248,0.3)]"
             aria-label="Quick add to cart"
           >
             <Plus className="w-5 h-5" />
@@ -111,7 +111,7 @@ export default function ProductCard({ product, index }: { product: Product; inde
           </h3>
 
           {/* Price */}
-          <p className="font-sans text-sm text-foreground/70">
+          <p className="font-sans text-sm text-white/70">
             R {product.price.toFixed(2)}
           </p>
 

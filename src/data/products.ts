@@ -56,7 +56,7 @@ export const products: Product[] = [
     rating: 4.8,
     description: 'Classic oversized streetwear t-shirt with a premium 300gsm weight.',
     fabric: '100% Cotton, 300gsm. Wash cold.',
-    story: 'Tall Boy Wear staple piece.',
+    story: 'Zonke Store staple piece.',
   },
   {
     id: 'dr-lucas-mangope-tee',

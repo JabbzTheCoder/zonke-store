@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
+import Logo from "@/components/Logo";
 
 export default function HomePage() {
   return (
@@ -66,24 +67,22 @@ export default function HomePage() {
           >
             <Link
               href="#shop"
-              className="inline-flex items-center justify-center px-10 py-4 bg-accent-red text-white font-display text-lg tracking-wider hover:bg-white hover:text-foreground transition-colors duration-300 w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-10 py-4 bg-cyan text-navy font-display text-lg tracking-wider hover:bg-white hover:text-navy transition-colors duration-300 w-full sm:w-auto"
             >
               SHOP NOW
             </Link>
             <Link
               href="#heritage"
-              className="inline-flex items-center justify-center px-10 py-4 bg-transparent border-2 border-white text-white font-display text-lg tracking-wider hover:bg-white hover:text-foreground transition-colors duration-300 w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-10 py-4 bg-transparent border-2 border-cyan text-cyan font-display text-lg tracking-wider hover:bg-cyan hover:text-navy transition-colors duration-300 w-full sm:w-auto"
             >
               OUR STORY
             </Link>
           </motion.div>
         </div>
 
-        {/* Pan-African accent bar at bottom */}
+        {/* Cyan accent bar at bottom */}
         <div className="absolute bottom-0 left-0 right-0 z-10 flex h-1.5">
-          <div className="flex-1 bg-accent-red" />
-          <div className="flex-1 bg-accent-yellow" />
-          <div className="flex-1 bg-accent-green" />
+          <div className="flex-1 bg-cyan" />
         </div>
       </section>
 
@@ -92,11 +91,11 @@ export default function HomePage() {
          ═══════════════════════════════════════════ */}
       <section id="shop" className="relative z-20 -mt-32">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="bg-bone p-6 md:p-10 lg:p-12">
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 md:p-10 lg:p-12 shadow-2xl">
             {/* Section header */}
             <div className="flex justify-between items-end mb-10 md:mb-14">
               <div>
-                <p className="font-sans text-xs tracking-[0.3em] text-foreground/50 mb-2 uppercase">
+                <p className="font-sans text-xs tracking-[0.3em] text-white/50 mb-2 uppercase">
                   The Latest Drop
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight">
@@ -105,7 +104,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="#shop"
-                className="font-sans text-xs font-bold tracking-[0.2em] text-foreground/50 hover:text-accent-red transition-colors uppercase hidden md:block"
+                className="font-sans text-xs font-bold tracking-[0.2em] text-cyan hover:text-white transition-colors uppercase hidden md:block"
               >
                 VIEW ALL →
               </Link>
@@ -124,14 +123,14 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           HERITAGE BLOCK
          ═══════════════════════════════════════════ */}
-      <section id="heritage" className="mt-24 md:mt-32">
+      <section id="heritage" className="mt-24 md:mt-32 mb-24">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="bg-foreground text-bone grid grid-cols-1 lg:grid-cols-2">
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden text-white grid grid-cols-1 lg:grid-cols-2 shadow-2xl">
             {/* Left: Editorial Image */}
             <div className="relative aspect-square lg:aspect-auto">
               <Image
                 src="/images/product-details.jpg"
-                alt="Tall Boy Wear Heritage — Product Details"
+                alt="Zonke Store Heritage — Product Details"
                 fill
                 className="object-cover"
               />
@@ -140,12 +139,10 @@ export default function HomePage() {
             {/* Right: Story */}
             <div className="p-10 md:p-16 lg:p-20 flex flex-col justify-center">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-8 h-1 bg-accent-red" />
-                <div className="w-8 h-1 bg-accent-yellow" />
-                <div className="w-8 h-1 bg-accent-green" />
+                <div className="w-12 h-1 bg-cyan" />
               </div>
 
-              <p className="font-sans text-xs tracking-[0.3em] text-bone/50 mb-4 uppercase">
+              <p className="font-sans text-xs tracking-[0.3em] text-cyan mb-4 uppercase">
                 Our Heritage
               </p>
 
@@ -155,30 +152,26 @@ export default function HomePage() {
                 JOZI BORN.
               </h2>
 
-              <p className="font-sans text-bone/70 leading-relaxed max-w-lg mb-6">
-                Born in the streets of Johannesburg, Tall Boy Wear was founded on
+              <p className="font-sans text-white/80 leading-relaxed max-w-lg mb-6">
+                Born in the streets of Johannesburg, Zonke Store was founded on
                 one principle: every thread tells a story. Our garments carry the
                 weight of heritage — the resilience of Soweto, the fire of June
                 16, and the unapologetic spirit of a generation that refuses to be
                 forgotten.
               </p>
 
-              <p className="font-sans text-bone/70 leading-relaxed max-w-lg mb-10">
+              <p className="font-sans text-white/80 leading-relaxed max-w-lg mb-10">
                 &quot;...If we don&apos;t do what we think is right for us now,
                 our children will suffer the same way we are suffering.&quot;
               </p>
 
               <div className="flex items-center gap-4">
-                <Image
-                  src="/images/logo-badge.png"
-                  alt="Tall Boy Wear Badge"
-                  width={80}
-                  height={80}
-                  className="opacity-80"
-                />
+                <div className="flex-shrink-0">
+                  <Logo className="text-4xl" showStore={false} />
+                </div>
                 <div>
-                  <p className="font-display text-xl">THE KING OF STREETWEAR</p>
-                  <p className="font-sans text-xs tracking-widest text-bone/40 mt-1">
+                  <p className="font-display text-xl text-white">THE KING OF STREETWEAR</p>
+                  <p className="font-sans text-xs tracking-widest text-white/50 mt-1">
                     CERTIFIED IN HEAVEN & MADE IN SOUTH AFRICA
                   </p>
                 </div>

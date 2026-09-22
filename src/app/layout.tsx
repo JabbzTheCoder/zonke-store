@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter, Anton } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' });
-const anton = Anton({ weight: '400', subsets: ['latin'], display: 'swap', variable: '--font-anton' });
+const montserrat = Montserrat({ subsets: ['latin'], display: 'swap', variable: '--font-montserrat' });
 
 export const metadata: Metadata = {
-  title: 'TALL BOY WEAR | The King of Streetwear',
+  title: 'ZONKE STORE | The King of Streetwear',
   description: 'Certified in Heaven & Made in South Africa. EST. 2011. Premium heritage-driven streetwear from Johannesburg.',
 };
 
@@ -17,7 +16,7 @@ import MarqueeFooter from '@/components/MarqueeFooter';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${anton.variable}`}>
+    <html lang="en" className={`${montserrat.variable}`}>
       <body>
         <CartProvider>
           <Header />

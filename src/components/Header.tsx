@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
+import Logo from '@/components/Logo';
 
 export default function Header() {
   const { openCart, count } = useCart();
@@ -32,29 +33,21 @@ export default function Header() {
     { label: 'HERITAGE', href: '/#heritage' },
   ];
 
-  // We need dark text (black) ONLY when we are NOT scrolled AND NOT on the homepage (e.g. on the product page with bone background).
-  // Otherwise, we want light text (white) because we are either scrolled (black header) or on the homepage (transparent over dark video).
-  const isDarkText = !scrolled && !isHome;
+  // With the new navy background, text is always white/light
+  const isDarkText = false;
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? 'bg-black/95 backdrop-blur-md shadow-lg'
+          ? 'bg-[#050a14]/80 backdrop-blur-lg border-b border-white/5 shadow-lg'
           : 'bg-transparent'
           }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10 h-24 flex items-center justify-between">
           {/* Left: Logo Badge (Oversized) */}
-          <Link href="/" className="flex-shrink-0 relative z-10 -ml-2">
-            <Image
-              src="/images/logo-bagewhites.png"
-              alt="Tall Boy Wear"
-              width={120}
-              height={120}
-              className="w-24 h-24 md:w-28 md:h-28 object-contain transition-transform duration-500 hover:scale-105"
-              priority
-            />
+          <Link href="/" className="flex-shrink-0 relative z-10 -ml-2 transition-transform duration-500 hover:scale-105">
+            <Logo className="text-3xl md:text-4xl" />
           </Link>
 
           {/* Center: Nav Links (desktop) */}
@@ -63,7 +56,7 @@ export default function Header() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`font-sans text-xs font-bold tracking-[0.2em] transition-colors duration-500 hover:text-accent-red ${isDarkText ? 'text-foreground' : 'text-white'
+                className={`font-sans text-xs font-bold tracking-[0.2em] transition-colors duration-500 hover:text-cyan ${isDarkText ? 'text-foreground' : 'text-white'
                   }`}
               >
                 {link.label}
@@ -75,12 +68,12 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <button
               onClick={openCart}
-              className={`relative transition-colors duration-500 hover:text-accent-red ${isDarkText ? 'text-foreground' : 'text-white'
+              className={`relative transition-colors duration-500 hover:text-cyan ${isDarkText ? 'text-foreground' : 'text-white'
                 }`}
             >
               <ShoppingBag className="w-6 h-6" strokeWidth={1.5} />
               {count > 0 && (
-                <span className="absolute -top-2 -right-2 bg-accent-red text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
+                <span className="absolute -top-2 -right-2 bg-cyan text-navy text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
                   {count}
                 </span>
               )}
@@ -103,17 +96,11 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-foreground flex flex-col"
+            className="fixed inset-0 z-[60] bg-[#050a14] flex flex-col"
           >
             <div className="flex justify-between items-center p-6 border-b border-white/10">
-              <Image
-                src="/images/logo-bagewhites.png"
-                alt="Tall Boy Wear"
-                width={80}
-                height={80}
-                className="h-20 w-auto"
-              />
-              <button onClick={() => setMobileOpen(false)} className="text-bone">
+              <Logo className="text-4xl" />
+              <button onClick={() => setMobileOpen(false)} className="text-white">
                 <X className="w-7 h-7" strokeWidth={1.5} />
               </button>
             </div>
@@ -123,7 +110,7 @@ export default function Header() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="font-display text-5xl text-bone hover:text-accent-red transition-colors"
+                  className="font-display text-5xl text-white hover:text-cyan transition-colors"
                 >
                   {link.label}
                 </Link>
