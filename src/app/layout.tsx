@@ -5,8 +5,8 @@ import './globals.css';
 const montserrat = Montserrat({ subsets: ['latin'], display: 'swap', variable: '--font-montserrat' });
 
 export const metadata: Metadata = {
-  title: 'ZONKE STORE | The King of Streetwear',
-  description: 'Certified in Heaven & Made in South Africa. EST. 2011. Premium heritage-driven streetwear from Johannesburg.',
+  title: 'ZONKE | STORE',
+  description: 'Premium heritage-driven streetwear from Johannesburg. Certified in Heaven & Made in South Africa. EST. 2011.',
 };
 
 import { CartProvider } from '@/context/CartContext';
